@@ -1,0 +1,171 @@
+/* Media querys - Nos permiten elegir como van a reaccionar nuestros estilos o estructuras segun el tipo de dispositivo - Forma artesanal de decidir como se ve nuestro proyecto */
+
+
+/* Sintaxis 
+@regla and condicion (ancho de un dispositivo) {
+    Todo lo que este aca se va a aplicar con CSS
+}
+
+*/
+
+/* Define que voy a utilizar una mediaquery */
+/* Tipo de medios:Screen / print/ speech / tv / all (son tipos de dispositivos)  */
+
+/* MOBILE */
+/* @media screen and (max-width: 468px ) { */
+    /* CSS normal dentro de las llaves */
+    /* body {
+        background-color: #B2D6F9;
+    }
+
+    .header-lg {
+        display: none;
+    } 
+
+} */
+
+/* TABLET */
+
+/* @media screen and (min-width: 469px) and (max-width:968px) {
+    body {
+        background-color: aquamarine;
+    }
+    .header-sm {
+        display: none;
+
+        }
+} */
+
+
+/* DESKTOP */
+
+/* @media screen and (min-width:968px) {
+    body {
+        background-color: #555555;
+    }
+
+    .header-sm {
+        display: none;
+
+        }
+    
+} */
+
+/* No necesitamos meter todo nuestro CSS en todas las medias querys */
+
+/* Tipos de caracteristicas
+
+LAS MAS USADAS:
+width - min-width y max-width - height - min-height y max-height - aspect-ratio (si el dispositivo encaja con la proporcion de aspecto indicada)
+oritentation (landscape(horizontal) - portrait(vertical))
+
+LAS NO TANTO USADAS:
+scan - update - resolution - color-index - dynamic-range - monochrome 
+ */
+
+ /* Condiciones del rango */
+
+ /* @media screen and (width <= 800px) {
+    .menu {
+        border: 1px solid black;
+    }
+ } */
+
+ /* Orientacion */
+ /* @media screen and (orientation: landscape)  {
+    body {
+        background-color:lightcoral;
+    }
+ } */
+
+/* Ejemplo con flex */
+ .Logo {
+    width: 120px;
+}
+/*
+header {
+    display: flex;
+    justify-content: center;
+}
+
+
+.nav-izquierda, .nav-derecha {
+    display: flex;
+    justify-content: center;
+}
+
+.nav-derecha ul, .nav-izquierda ul {
+    list-style-type: none;
+    display: flex;
+}
+.nav-derecha ul a, .nav-izquierda ul a {
+    text-decoration: none;
+    
+} */
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas: 
+    'header header'
+    'navDer navIzq'
+    'parrafo parrafo'
+    'img img'
+    'footer footer';
+    /* Definir columnas y filas */
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100px 100px auto 1fr 100px;
+}
+
+header {
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-izquierda {
+    grid-area: navIzq;
+}
+
+.nav-derecha {
+    grid-area: navDer;
+}
+
+.nav-derecha ul,
+.nav-izquierda ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
+
+li {
+    padding: 10px;
+}
+
+.parrafo {
+    grid-area: parrafo;
+}
+
+.images {
+    grid-area: img;
+}
+
+.footer {
+    grid-area: footer;
+}
+
+/* Grid para la estructura
+    Flex para el posicionamiento
+    Media query para la distribucion */
+
+    @media screen and (max-width:600px) {
+        .grid-container {
+            grid-template-areas: 
+            'navIzq navIzq header'
+            'parrafo parrafo parrafo';
+        }
+    }
+
+footer img {
+    width: 120px;
+}
